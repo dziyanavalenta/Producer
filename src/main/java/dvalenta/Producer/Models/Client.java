@@ -13,7 +13,6 @@ public class Client {
         return clientId;
     }
 
-
     public String getEmail() {
         return email;
     }

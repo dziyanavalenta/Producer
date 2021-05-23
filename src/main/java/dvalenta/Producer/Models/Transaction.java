@@ -1,5 +1,7 @@
 package dvalenta.Producer.Models;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.time.LocalDateTime;
 
 public class Transaction {
@@ -8,7 +10,9 @@ public class Transaction {
     private TransactionType orderType;
     private Integer quantity;
     private Double price;
-    private LocalDateTime createdAt;
+    @JsonFormat
+            (shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy hh:mm:ss")
+    public LocalDateTime createdAt;
 
     public Transaction(String bank, Long clientId, TransactionType orderType, Integer quantity, Double price, LocalDateTime createdAt) {
         this.bank = bank;
