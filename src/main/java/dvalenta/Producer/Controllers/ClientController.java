@@ -20,7 +20,7 @@ public class ClientController {
     public ResponseEntity<Client> postClient(@RequestBody Client client){
         //invoke kafka producer
         log.info("before sendClient"); //just to see asynchronization (different port)
-        clientCreationService.produceNewClient(client);
+        clientCreationService.produce(client);
         log.info("after sendClient");
         return ResponseEntity.status(HttpStatus.CREATED).body(client);
     }

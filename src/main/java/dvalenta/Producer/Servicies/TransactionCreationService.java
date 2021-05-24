@@ -12,9 +12,8 @@ public class TransactionCreationService {
 
     private static final String TOPIC = "jsonTransaction";
 
-    public void produceNewTransaction(Transaction transaction){
-        kafkaTemplate.send(TOPIC, new Transaction(transaction.getBank(),transaction.getClientId(), transaction.getOrderType(),
-                transaction.getQuantity(), transaction.getPrice(), transaction.getCreatedAt()));
+    public void produce(Transaction transaction){
+        kafkaTemplate.send(TOPIC, transaction);
     }
 }
 

@@ -12,8 +12,8 @@ public class ClientCreationService {
 
     private static final String TOPIC = "jsonClient";
 
-    public void produceNewClient(Client client) {
-        kafkaTemplate.send(TOPIC, new Client(client.getClientId(), client.getEmail()));
+    public void produce(Client client) {
+        kafkaTemplate.send(TOPIC, client);
     }
 }
 

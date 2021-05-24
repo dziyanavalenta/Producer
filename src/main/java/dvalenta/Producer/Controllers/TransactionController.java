@@ -21,7 +21,7 @@ public class TransactionController {
     public ResponseEntity<Transaction> postTransaction(@RequestBody Transaction transaction) {
         //invoke kafka producer
         log.info("before sendTransaction");
-        transactionCreationService.produceNewTransaction(transaction);
+        transactionCreationService.produce(transaction);
         log.info("after sendTransaction");
         return ResponseEntity.status(HttpStatus.CREATED).body(transaction);
     }
