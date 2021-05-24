@@ -1,4 +1,4 @@
-package dvalenta.Producer.Models;
+package dvalenta.Producer.Client;
 
 public class Client {
     private Long clientId;
