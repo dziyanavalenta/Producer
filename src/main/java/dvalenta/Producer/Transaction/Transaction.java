@@ -1,4 +1,4 @@
-package dvalenta.Producer.Models;
+package dvalenta.Producer.Transaction;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 

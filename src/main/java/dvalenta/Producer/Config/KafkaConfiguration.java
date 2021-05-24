@@ -1,9 +1,8 @@
 package dvalenta.Producer.Config;
 
-import dvalenta.Producer.Models.Client;
-import dvalenta.Producer.Models.Transaction;
+import dvalenta.Producer.Client.Client;
+import dvalenta.Producer.Transaction.Transaction;
 import org.apache.kafka.clients.producer.ProducerConfig;
-import org.apache.kafka.common.serialization.LongSerializer;
 import org.apache.kafka.common.serialization.StringSerializer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

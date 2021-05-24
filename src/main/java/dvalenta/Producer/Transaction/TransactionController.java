@@ -1,7 +1,5 @@
-package dvalenta.Producer.Controllers;
+package dvalenta.Producer.Transaction;
 
-import dvalenta.Producer.Models.Transaction;
-import dvalenta.Producer.Servicies.TransactionCreationService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

@@ -1,6 +1,6 @@
-package dvalenta.Producer.Servicies;
+package dvalenta.Producer.Transaction;
 
-import dvalenta.Producer.Models.Transaction;
+import dvalenta.Producer.Transaction.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
