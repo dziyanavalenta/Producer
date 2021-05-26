@@ -1,5 +1,10 @@
 package dvalenta.Producer.Client;
 
+import lombok.Builder;
+import lombok.Getter;
+
+@Getter
+@Builder
 public class Client {
     private Long clientId;
     private String email;
