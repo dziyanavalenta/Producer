@@ -1,6 +1,5 @@
 package dvalenta.Producer.Client;
 
-import lombok.extern.slf4j.Slf4j; //to see logs
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
