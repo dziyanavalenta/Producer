@@ -17,14 +17,15 @@ import static org.mockito.Mockito.doNothing;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@WebMvcTest(ClientController.class)
+//Unit test for the endpoint that is build in ClientController
+@WebMvcTest(ClientController.class) //This annotation is used to write Unit tests for controller layers
 @AutoConfigureMockMvc
 public class ClientControllerUnitTest {
-    @Autowired //We used Mock MVC to simulate behavior of end point
-    MockMvc mockMvc;
+    @Autowired //MockMvs is used to simulate behavior of end point
+    MockMvc mockMvc; //mockMvc will have the access to all endpoints in ClientController
 
     ObjectMapper objectMapper = new ObjectMapper();
-    @MockBean //We used MockBean to inject Controller to class
+    @MockBean //MockBean is used to inject external dependencies
     ClientProducer producer;
 
     @Test
@@ -36,7 +37,8 @@ public class ClientControllerUnitTest {
                 .build();
 
         String json = objectMapper.writeValueAsString(client);
-        doNothing().when(producer).produce(isA(Client.class));//We used Mockito to mock behavior
+        System.out.println("This is json "+json);
+        doNothing().when(producer).produce(isA(Client.class));//Mockito is used to mock behavior
 
         //when
         mockMvc.perform(post("/kafka/clients")
