@@ -48,6 +48,7 @@ public class KafkaConfiguration {
     public KafkaTemplate<String, Transaction> kafkaTemplate2(){
         return new KafkaTemplate<>(producerFactory2());
     }
+
 }
 
 
