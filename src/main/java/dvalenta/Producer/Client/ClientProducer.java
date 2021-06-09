@@ -1,5 +1,7 @@
 package dvalenta.Producer.Client;
 
+import org.apache.kafka.clients.admin.NewTopic;
+import org.springframework.context.annotation.Bean;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +19,13 @@ public class ClientProducer {
     public void produce(Client client) {
         kafkaTemplate.send(TOPIC, client);
     }
+
+    @Bean
+    public NewTopic createTopic(){
+        return new NewTopic(TOPIC, 3,(short) 1);
+    }
 }
+
+
 
 

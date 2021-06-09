@@ -36,9 +36,9 @@ import static org.springframework.kafka.support.KafkaHeaders.TOPIC;
 public class ClientProducerUnitTest {
     @Autowired
     ObjectMapper objectMapper = new ObjectMapper();
+
     @InjectMocks //Create an instance of the class that is on the test
     ClientProducer clientProducer;
-
     @Mock
     KafkaTemplate<String, Client> kafkaTemplate;
 
@@ -51,7 +51,7 @@ public class ClientProducerUnitTest {
                 .build();
 
         String json = objectMapper.writeValueAsString(client);
-        System.out.println("This is json "+json);
+
         //when
         clientProducer.produce(client);
         //then
