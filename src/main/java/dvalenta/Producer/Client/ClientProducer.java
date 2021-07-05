@@ -21,8 +21,7 @@ public class ClientProducer {
     }
 
     @Bean
-    public NewTopic createTopic(){
-        return new NewTopic(TOPIC, 3,(short) 1);
+    public NewTopic createTopic() { return new NewTopic(TOPIC, 3, (short) 1);
     }
 }
 

@@ -18,35 +18,32 @@ import java.util.Map;
 public class KafkaConfiguration {
 
     @Bean
-    public ProducerFactory<String, Client> producerFactory() {
+    public Map<String, Object> producerConfig() {
         Map<String, Object> config = new HashMap<>();
-
-        config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "127.0.0.1:9092");
+        config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "kafka:9093"); //run through docker: kafka:9093 //local run: localhost:9092
         config.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
         config.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
-
-        return new DefaultKafkaProducerFactory<>(config);
+        return config;
     }
 
     @Bean
-    public KafkaTemplate<String, Client> kafkaTemplate() {
-        return new KafkaTemplate<>(producerFactory());
+    public ProducerFactory<String, Client> producerFactoryClient() {
+        return new DefaultKafkaProducerFactory<>(producerConfig());
     }
 
     @Bean
-    public ProducerFactory<String, Transaction> producerFactory2(){
-        Map<String, Object> config = new HashMap<>();
-
-        config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,"127.0.0.1:9092");
-        config.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
-        config.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
-
-        return new DefaultKafkaProducerFactory<>(config);
+    public KafkaTemplate<String, Client> kafkaTemplateClient() {
+        return new KafkaTemplate<>(producerFactoryClient());
     }
 
     @Bean
-    public KafkaTemplate<String, Transaction> kafkaTemplate2(){
-        return new KafkaTemplate<>(producerFactory2());
+    public ProducerFactory<String, Transaction> producerFactoryTransaction() {
+        return new DefaultKafkaProducerFactory<>(producerConfig());
+    }
+
+    @Bean
+    public KafkaTemplate<String, Transaction> kafkaTemplateTransaction() {
+        return new KafkaTemplate<>(producerFactoryTransaction());
     }
 
 }
